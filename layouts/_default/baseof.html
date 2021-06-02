@@ -15,6 +15,10 @@
                 {{ block "main" . }}{{ end }}
             </div>
 
+            <div class="content">
+                {{ block "about" . }}{{ end }}
+            </div>
+
             {{ block "footer" . }}
                 {{ partial "footer.html" . }}
             {{ end }}
