@@ -1,0 +1,31 @@
+<!--
+    This is a partial file I (asubiotto) added that can be used both by the
+    single.html file and jobs.html (for now) to be able to use jobs.md front
+    matter (i.e. not have to totally redefine the jobs.html page).
+-->
+<article>
+    <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
+
+    {{ if .Params.Cover }}
+        <figure class="post-cover">
+            <img src="{{ .Params.Cover | absURL }}" alt="{{ .Title }}" />
+        
+            {{ if .Params.CoverCaption }}
+                <figcaption class="center">{{ .Params.CoverCaption | markdownify }}</figcaption>
+            {{ end }}
+        </figure>
+    {{ end }}
+    
+    {{ if .Params.toc }}
+        <hr />
+        <aside id="toc">
+        <div class="toc-title">{{ i18n "tableOfContents" }}</div>
+            {{ .TableOfContents }}
+        </aside>
+        <hr />
+    {{ end }}
+
+    <div class="post-content">
+        {{ .Content }}
+    </div>
+</article>
